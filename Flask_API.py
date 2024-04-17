@@ -33,8 +33,9 @@ async def startDetect():
     data = request.json
     base64 = data.get('image')  # Get the 'name' parameter from the query string, default to 'Guest'
     # print(base64)
-    await base64_to_image(base64,'images')
-    data = await detectBarcode(1)
+    path = await base64_to_image(base64,'images')
+    print(path)
+    data = await detectBarcode(path)
     return data
 
 if __name__ == '__main__':
